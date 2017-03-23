@@ -1,0 +1,11 @@
+{
+  "name": "nn-workshop-modules",
+  "version": "0.0.1",
+  "description": "Nerd/Noir's modular workshop content.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Laribee",
+  "license": "SEE LICENSE IN LICENSE.md"
+}
