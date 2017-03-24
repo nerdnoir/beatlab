@@ -1,3 +1,3 @@
 <section class="media">
-  <video class="stretch" src="$module-dir/versionone-ideas-gource.mp4"></video>
+  <video class="stretch" src="$module_dir/versionone-ideas-gource.mp4"></video>
 </section>
