@@ -1,3 +1,7 @@
+# How to
+
+NN_WORKSHOP_MODULES=$HOME/projects/workshops/modules/content/ ./build.js
+
 # NN Workshop Lab
 
 "Lab" stores workshop content in reusuable chunks called "modules" and "elements."
