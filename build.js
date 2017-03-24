@@ -4,8 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const process = require('process')
 
-console.log(process.argv1)
-const workshopPath = './workshops/example' // TODO: Make an argument
+const workshopPath = process.argv[2]
 
 const isSlide = (module) => module.endsWith('.slide')
 
