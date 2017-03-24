@@ -1,12 +1,12 @@
 # How to
 
-NN_WORKSHOP_MODULES=$HOME/projects/workshops/modules/content/ ./build.js
+NN_WORKSHOP_MODULES=$HOME/projects/workshops/nn-workshop-lab/modules/ ./build.js ./workshops/example
 
 # NN Workshop Lab
 
-"Lab" stores workshop content in reusuable chunks called "modules" and "elements."
+"Lab" stores workshop content in reusuable chunks called "modules" and "slides."
 
-A module is a cohesive flow of elements. Modules are the fundamental unit of reuse in
+A module is a cohesive flow of slides. Modules are the fundamental unit of reuse in
 our workshops. A module is:
 
 1. A folder using a slug-like, dash-delited format. For example: double-loop-tdd,
