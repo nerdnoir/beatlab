@@ -1,0 +1,9 @@
+title: About Nerd/Noir Beatlab
+slug: about
+author: laribee
+tags: [ 'beatlab' ]
+description: What is this thing?
+minutes: 5
+slides:
+  - about.md
+  - tr-808.md
