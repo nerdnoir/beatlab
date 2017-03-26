@@ -11,6 +11,8 @@
   "dependencies": {
     "datauri": "^1.0.5",
     "handlebars": "^4.0.6",
-    "process": "latest"
+    "js-yaml": "^3.8.2",
+    "process": "latest",
+    "ramda": "^0.23.0"
   }
 }
