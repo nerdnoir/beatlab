@@ -44,4 +44,11 @@ describe("Handle paths with a known extension", () => {
     expect(handler.kind).to.equal("gitRepo")
     expect(handler.path).to.equal("git://github.com/laribee/workshops/")
   })
+
+  it("returns a noop handler for paths it does not recognize", () => {
+    const path = 'something.else'
+    const handler = slideHandlers(path)
+    expect(handler.kind).to.equal("NOOP")
+    expect(handler.path).to.equal(path)
+  })
 })
