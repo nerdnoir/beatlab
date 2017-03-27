@@ -4,7 +4,7 @@
   "description": "Nerd/Noir modular workshop content.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/specs/**/*.spec.js"
+    "test": "./node_modules/.bin/mocha tests/specs/**/*.spec.js"
   },
   "author": "David Laribee",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -16,6 +16,7 @@
     "ramda": "^0.23.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "mocha": "^3.2.0"
   }
 }
