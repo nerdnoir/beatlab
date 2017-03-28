@@ -4105,7 +4105,7 @@
 	}
 
 	/**
-	 * Handler for the document level 'keypress' event.
+	 * Renderer for the document level 'keypress' event.
 	 *
 	 * @param {object} event
 	 */
@@ -4124,7 +4124,7 @@
 	}
 
 	/**
-	 * Handler for the document level 'keydown' event.
+	 * Renderer for the document level 'keydown' event.
 	 *
 	 * @param {object} event
 	 */
@@ -4260,7 +4260,7 @@
 	}
 
 	/**
-	 * Handler for the 'touchstart' event, enables support for
+	 * Renderer for the 'touchstart' event, enables support for
 	 * swipe and pinch gestures.
 	 *
 	 * @param {object} event
@@ -4288,7 +4288,7 @@
 	}
 
 	/**
-	 * Handler for the 'touchmove' event.
+	 * Renderer for the 'touchmove' event.
 	 *
 	 * @param {object} event
 	 */
@@ -4379,7 +4379,7 @@
 	}
 
 	/**
-	 * Handler for the 'touchend' event.
+	 * Renderer for the 'touchend' event.
 	 *
 	 * @param {object} event
 	 */
@@ -4491,7 +4491,7 @@
 	function onNavigateNextClicked( event ) { event.preventDefault(); onUserInput(); navigateNext(); }
 
 	/**
-	 * Handler for the window level 'hashchange' event.
+	 * Renderer for the window level 'hashchange' event.
 	 *
 	 * @param {object} [event]
 	 */
@@ -4502,7 +4502,7 @@
 	}
 
 	/**
-	 * Handler for the window level 'resize' event.
+	 * Renderer for the window level 'resize' event.
 	 *
 	 * @param {object} [event]
 	 */
