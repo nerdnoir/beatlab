@@ -32,10 +32,10 @@ describe("Handle paths with a known extension", () => {
   })
 
   it("local modules (includes)", () => {
-    const path = '@workshops/testing/'
+    const path = '+workshops/testing/'
     const handler = slideHandlers(path)
     expect(handler.kind).to.equal("localModule")
-    expect(handler.path).to.equal("@workshops/testing/")
+    expect(handler.path).to.equal("+workshops/testing/")
   })
 
   it("a git repo (includes)", () => {

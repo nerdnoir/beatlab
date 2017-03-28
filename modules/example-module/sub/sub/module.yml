@@ -1,0 +1,8 @@
+title: Test Sub Sub Module
+slug: sub-sub-module
+author: laribee
+description: Test sub module
+minutes: 5
+slides:
+  - hello.md
+  - goodbye.md
