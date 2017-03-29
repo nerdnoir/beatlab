@@ -1,4 +1,4 @@
-const renderers = require("../../lib/renderers")
+const builders = require("../../lib/builders")
 const expect = require("chai").expect
 const R = require("ramda")
 
@@ -12,14 +12,14 @@ describe("When a renderer is added,", () => {
 
     const markdownRule = {
       name: 'markdown',
-      pattern: renderers.TESTS.markdown,
+      pattern: builders.TESTS.markdown,
       read: fakeReader,
       template: (viewData) => {}
     };
-    renderers.register(markdownRule)
+    builders.register(markdownRule)
 
     // ACT
-    renderers.render("slide.md")
+    builders.build("slide.md")
 
     // ASSERT
     expect(wasRead).to.be.true;
@@ -34,15 +34,15 @@ describe("When a renderer is added,", () => {
 
     const markdown = {
       name: 'markdown',
-      pattern: renderers.TESTS.markdown,
+      pattern: builders.TESTS.markdown,
       read: fakeReader,
       template: fakeTemplate
     };
 
-    renderers.register(markdown)
+    builders.register(markdown)
 
     // ACT
-    renderers.render("slide.md")
+    builders.build("slide.md")
 
     // ASSERT
     expect(wasCalled).to.be.true
@@ -57,15 +57,15 @@ describe("When a renderer is added,", () => {
 
     const markdown = {
       name: 'markdown',
-      pattern: renderers.TESTS.markdown,
+      pattern: builders.TESTS.markdown,
       read: fakeReader,
       template: fakeTemplate
     };
 
-    renderers.register(markdown)
+    builders.register(markdown)
 
     // ACT
-    renderers.render("slide.md")
+    builders.build("slide.md")
 
     // ASSERT
     expect(contentValue).to.equal("foo")
@@ -81,23 +81,23 @@ describe("When a renderer is added,", () => {
 
     const markdown = {
       name: 'markdown',
-      pattern: renderers.TESTS.markdown,
+      pattern: builders.TESTS.markdown,
       read: fakeReader,
       viewData: fakeViewData,
       template: fakeTemplate
     };
 
-    renderers.register(markdown)
+    builders.register(markdown)
 
     // ACT
-    renderers.render("slide.md")
+    builders.build("slide.md")
 
     // ASSERT
     expect(contentValue).to.equal("bar")
   })
 
   afterEach(() => {
-    renderers.reset()
+    builders.reset()
   })
 
 })

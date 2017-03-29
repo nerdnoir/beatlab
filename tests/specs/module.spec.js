@@ -32,6 +32,20 @@ describe("Module", () => {
       process.env.BEATLAB_MODULES = "./modules"
       const subject = new Module("example-module")
       expect(subject.fullPath).to.startWith("modules/example-module/")
+    })
+
+    it("copies module data to the slide entry.", () => {
+      const subject = new Module("example-module")
+      expect(subject.sections[0].data.title).to.equal('Git/GitHub Best Practices')
+      expect(subject.sections[7].data.title).to.equal('Test Sub Sub Module')
+    })
+
+    it("copied module data DOES NOT contain slides", () => {
+      const subject = new Module("example-module")
+      expect(subject.sections[0].data.slides).to.be.undefined;
+    })
+
+    afterEach(() => {
       delete process.env.BEATLAB_MODULES
     })
 

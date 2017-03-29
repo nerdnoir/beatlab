@@ -1,5 +1,5 @@
 title: Git/GitHub Best Practices
-slug: git-team-best-practices
+key: git-team-best-practices
 author: laribee
 classes: [exercise]
 tags: [exercise, git, scm, github, devops, team]
@@ -9,12 +9,14 @@ outcomes:
   - Learn about git best practices.
   - Negotiate best practices within a team.
   - Choose a few to try during the rest of the workshop.
-slides:
-  - title.md
-  - setup.html
-  - image1.png
-  - image1.gif
-  - image1.jpg
-  - image1.jpeg
-  - +/example-module/sub/sub/
-  - feedback.md
+sections:
+  - slide: title.md
+  - slide: setup.html
+  - slide: image1.png
+  - slide: image1.gif
+  - slide: image1.jpg
+  - slide: image1.jpeg
+    classes: ['slide-dark']
+  - module: /example-module/sub/sub/
+    section: true
+  - slide: feedback.md
