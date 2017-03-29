@@ -1,4 +1,4 @@
-const renderers = require("../../lib/render")
+const renderers = require("../../lib/renderers")
 const expect = require("chai").expect
 const R = require("ramda")
 
