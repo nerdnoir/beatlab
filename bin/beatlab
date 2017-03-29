@@ -1,0 +1,29 @@
+#!/usr/local/bin/node
+
+const program = require('commander')
+const process = require('process')
+const path = require('path')
+const npmPackage = require('../package.json')
+
+program
+  .version(npmPackage.version)
+
+program
+  .command('info')
+  .description('Display default BEATLAB module path.')
+  .alias('i')
+  .action(function() {
+    const modulePath = process.env.BEATLAB_HOME || path.join(process.cwd(), "modules")
+    console.log(modulePath)
+  })
+
+program
+  .command('mix <path> <out>')
+  .description('Render a track from a module path (path) to output dir (out).')
+  .option('-r, --repo <repo>', "Path to a module repository.")
+  .action(function(path, out, options) {
+    console.log(`Rendering module @ \"${path}\" to: \"${out}\"`)
+    console.log(`Modules located @ \"${options.repo}\"`)
+  })
+
+program.parse(process.argv)
