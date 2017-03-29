@@ -7,7 +7,7 @@ const Module = require('../../lib/module.js')
 
 describe("Module", () => {
 
-  describe("creation", () => {
+  describe("Creation", () => {
 
     it("assumes modules are in a subdir 'modules'", () => {
       const subject = new Module("example-module")
@@ -40,7 +40,7 @@ describe("Module", () => {
   describe("Sections", () => {
     it ("pulls in sections from referenced modules", () => {
       const subject = new Module("example-module")
-      //expect(subject.sections.length).to.equal(9)
+      expect(subject.sections.length).to.equal(9)
     })
   })
 })
