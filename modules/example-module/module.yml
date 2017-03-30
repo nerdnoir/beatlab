@@ -16,7 +16,6 @@ sections:
   - slide: image1.gif
   - slide: image1.jpg
   - slide: image1.jpeg
-    classes: ['slide-dark']
   - module: /example-module/sub/sub/
-    section: true
   - slide: feedback.md
+  - module: /about/

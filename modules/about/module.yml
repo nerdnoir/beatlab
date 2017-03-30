@@ -3,7 +3,7 @@ slug: about
 author: laribee
 tags: [ 'beatlab' ]
 description: What is this thing?
-minutes: 5
-slides:
-  - about.md
-  - tr-808.md
+minutes: 1
+sections:
+  - slide: tr-808.png
+  - slide: about.md
