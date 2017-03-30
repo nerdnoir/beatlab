@@ -1,0 +1,3 @@
+[submodule "vendor/reveal.js"]
+	path = vendor/reveal.js
+	url = git@github.com:nerdnoir/reveal.js.git
