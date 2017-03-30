@@ -13,7 +13,7 @@
     "url": "http://github.com/nerdnoir/beatlab.git"
   },
   "scripts": {
-    "start" : "node server.js",
+    "start": "node server.js",
     "test": "./node_modules/.bin/mocha tests/specs/**/*.spec.js"
   },
   "author": "David Laribee <david@nerdnoir.com> (https://nerdnoir.com/)",
@@ -23,8 +23,10 @@
     "datauri": "^1.0.5",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.2",
+    "mkdirp": "^0.5.1",
     "process": "latest",
-    "ramda": "^0.23.0"
+    "ramda": "^0.23.0",
+    "shelljs": "^0.7.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",

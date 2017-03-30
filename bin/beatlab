@@ -5,18 +5,27 @@ const process = require('process')
 const path = require('path')
 const npmPackage = require('../package.json')
 const builders = require('../lib/builders')
+const fs = require('fs')
+const shelljs = require('shelljs')
 
 // BEGIN: HACK
 
 function mix(command) {
+
     const loader = require('../lib/loader')
     const moduleRepo = loader.moduleRepo(command.repo)
     const moduleFullPath = path.join(moduleRepo, command.source)
-    console.log(moduleFullPath)
-    const mix = require('../lib/mix')
+
+    const mixer = require('../lib/mix')
     const html = builders.HELPERS.createTemplate('presenter')
-    const slideDom = mix(moduleFullPath)
-    console.log(html({ content: slideDom }))
+    const slides = mixer(moduleFullPath)
+
+    const deck = html({ content: slides.join('\n') })
+
+    shelljs.mkdir('-p', command.destination)
+    shelljs.cp('-r', "./vendor/reveal.js/.", command.destination)
+
+    fs.writeFileSync(path.join(command.destination, 'index.html'), deck)
 }
 
 // END
@@ -38,10 +47,16 @@ program
   .description('Render a track from a module path (path) to output dir (out).')
   .option('-r, --repo <repo>', "Path to a module repository.")
   .action(function(source, destination, options) {
-    console.log(`Rendering module @ \"${source}\" to: \"${destination}\"`)
-    console.log(`Modules located @ \"${options.repo}\"`)
+    console.log(`Rendering module \"${source}\" to: \"${destination}\"`)
+
+    const loader = require('../lib/loader')
+    const moduleRepo = loader.moduleRepo(options.repo)
+    console.log(`Resolving modules from: \"${moduleRepo}\"`)
 
     mix({source: source, destination: destination, repo: options.repo})
   })
+
+program
+  .command('drop <domain>', "Publish the show!")
 
 program.parse(process.argv)

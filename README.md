@@ -1,3 +1,5 @@
+A simple content manager built on top of reveal.js.
+
 # Install
 
 ```bash
