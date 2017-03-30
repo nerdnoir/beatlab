@@ -5,6 +5,19 @@ const process = require('process')
 const path = require('path')
 const npmPackage = require('../package.json')
 
+// BEGIN: HACK
+
+function mix(command) {
+    const loader = require('../lib/loader')
+    const moduleRepo = loader.moduleRepo(command.repo)
+    const moduleFullPath = path.join(moduleRepo, command.source)
+    console.log(moduleFullPath)
+    const mixer = require('../lib/mixer')
+    console.log(mixer(moduleFullPath))
+}
+
+// END
+
 program
   .version(npmPackage.version)
 
@@ -18,12 +31,14 @@ program
   })
 
 program
-  .command('mix <path> <out>')
+  .command('mix <source> <destination>')
   .description('Render a track from a module path (path) to output dir (out).')
   .option('-r, --repo <repo>', "Path to a module repository.")
-  .action(function(path, out, options) {
-    console.log(`Rendering module @ \"${path}\" to: \"${out}\"`)
+  .action(function(source, destination, options) {
+    console.log(`Rendering module @ \"${source}\" to: \"${destination}\"`)
     console.log(`Modules located @ \"${options.repo}\"`)
+
+    mix({source: source, destination: destination, repo: options.repo})
   })
 
 program.parse(process.argv)
