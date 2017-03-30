@@ -3,9 +3,9 @@ const R = require("ramda")
 
 describe("When a renderer is added,", () => {
 
-  it("you can supply a read function.", () => {
+  this.subject = require("../../lib/builders")
 
-    // ARRANGE
+  it("you can supply a read function.", () => {
     let wasRead = false
     const fakeReader = (path) => wasRead = true
 
@@ -15,18 +15,14 @@ describe("When a renderer is added,", () => {
       read: fakeReader
     };
 
-    const subject = require("../../lib/builders")
-    subject.register(markdownRule)
+    this.subject.register(markdownRule)
 
-    // ACT
-    subject.build("slide.md")
+    this.subject.build("slide.md")
 
-    // ASSERT
     expect(wasRead).to.be.true;
   })
 
-  xit("you can supply a template function.", () => {
-
+  it("you can supply a template function.", () => {
     // ARRANGE
     let wasCalled = false
     const fakeReader = (path) => { return "output" }
@@ -36,25 +32,26 @@ describe("When a renderer is added,", () => {
       name: 'markdown',
       match: R.test(/.*\.md$/),
       read: fakeReader,
-      templateFunc: fakeTemplate
+      template: fakeTemplate
     };
 
-    const subject = require("../../lib/builders")
-    subject.register(markdown)
+    this.subject.register(markdown)
 
     // ACT
-    subject.build("slide.md")
+    this.subject.build("slide.md")
 
     // ASSERT
     expect(wasCalled).to.be.true
   })
 
-  xit("there is a default view data function.", () => {
+  it("there is a default view data function.", () => {
 
     // ARRANGE
     let contentValue = null
     const fakeReader = (path) => { return "foo" }
-    const fakeTemplate = (data) => { contentValue = data.content; }
+    const fakeTemplate = (data) => {
+      contentValue = data.content
+    }
 
     const markdown = {
       name: 'markdown',
@@ -63,23 +60,22 @@ describe("When a renderer is added,", () => {
       template: fakeTemplate
     };
 
-    const subject = require("../../lib/builders")
-    subject.register(markdown)
+    this.subject.register(markdown)
 
     // ACT
-    subject.build("slide.md")
+    this.subject.build("slide.md")
 
     // ASSERT
     expect(contentValue).to.equal("foo")
   })
 
-  xit("you can override the default view data function.", () => {
+  it("you can override the default view data function.", () => {
 
     // ARRANGE
     let contentValue = null
     const fakeReader = (path) => { return "bar" }
     const fakeViewData = (fileContents) => { return { differentProp: fileContents } }
-    const fakeTemplate = (data) => { contentValue = data.differentProp; }
+    const fakeTemplate = (data) => { contentValue = data.differentProp }
 
     const markdown = {
       name: 'markdown',
@@ -89,14 +85,17 @@ describe("When a renderer is added,", () => {
       template: fakeTemplate
     };
 
-    const builders = require("../../lib/builders")
-    builders.register(markdown)
+    this.subject.register(markdown)
 
     // ACT
-    builders.build("slide.md")
+    this.subject.build("slide.md")
 
     // ASSERT
     expect(contentValue).to.equal("bar")
+  })
+
+  afterEach(() => {
+    this.subject.reset();
   })
 
 })

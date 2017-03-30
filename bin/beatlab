@@ -12,8 +12,8 @@ function mix(command) {
     const moduleRepo = loader.moduleRepo(command.repo)
     const moduleFullPath = path.join(moduleRepo, command.source)
     console.log(moduleFullPath)
-    const mixer = require('../lib/mixer')
-    console.log(mixer(moduleFullPath))
+    const mix = require('../lib/mix')
+    console.log(mix(moduleFullPath))
 }
 
 // END
