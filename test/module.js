@@ -2,9 +2,9 @@ const chai = require("chai")
 const expect = chai.expect
 chai.use(require('chai-string'))
 const path = require("path")
-const loader = require('../../lib/loader')
+const loader = require('../lib/loader')
 
-const Module = require('../../lib/module')
+const Module = require('../lib/module')
 
 describe("Module", () => {
 
@@ -43,7 +43,7 @@ describe("Module", () => {
   describe("Sections", () => {
     it ("pulls in sections from referenced modules", () => {
       const subject = new Module(path.join(loader.moduleRepo(), "example-module"))
-      expect(subject.sections.length).to.equal(9)
+      expect(subject.sections.length).to.equal(11)
     })
   })
 })

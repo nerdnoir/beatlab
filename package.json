@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "./node_modules/.bin/mocha tests/specs/**/*.spec.js"
+    "test": "./node_modules/.bin/mocha test/**/*.spec.js"
   },
   "author": "David Laribee <david@nerdnoir.com> (https://nerdnoir.com/)",
   "license": "SEE LICENSE IN LICENSE.md",

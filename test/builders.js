@@ -3,7 +3,7 @@ const R = require("ramda")
 
 describe("Builder", () => {
 
-  this.subject = require("../../lib/builders")
+  this.subject = require("../lib/builders")
 
   it("you can supply a read function.", () => {
     let wasRead = false
