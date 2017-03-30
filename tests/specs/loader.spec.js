@@ -4,7 +4,7 @@ chai.use(require('chai-string'))
 const path = require('path')
 const loader = require('../../lib/loader')
 
-describe("Loading and paths", () => {
+describe("Loader", () => {
 
   it(`CWD returns the current working directory.
       (That is, where the script was called from.)`, () => {

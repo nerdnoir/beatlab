@@ -1,7 +1,7 @@
 const expect = require("chai").expect
 const R = require("ramda")
 
-describe("When a renderer is added,", () => {
+describe("Builder", () => {
 
   this.subject = require("../../lib/builders")
 
@@ -19,7 +19,7 @@ describe("When a renderer is added,", () => {
 
     this.subject.build("slide.md")
 
-    expect(wasRead).to.be.true;
+    expect(wasRead).to.be.true
   })
 
   it("you can supply a template function.", () => {
@@ -83,7 +83,7 @@ describe("When a renderer is added,", () => {
       read: fakeReader,
       viewData: fakeViewData,
       template: fakeTemplate
-    };
+    }
 
     this.subject.register(markdown)
 

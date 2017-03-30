@@ -4,6 +4,7 @@ const program = require('commander')
 const process = require('process')
 const path = require('path')
 const npmPackage = require('../package.json')
+const builders = require('../lib/builders')
 
 // BEGIN: HACK
 
@@ -13,7 +14,9 @@ function mix(command) {
     const moduleFullPath = path.join(moduleRepo, command.source)
     console.log(moduleFullPath)
     const mix = require('../lib/mix')
-    console.log(mix(moduleFullPath))
+    const html = builders.HELPERS.createTemplate('presenter')
+    const slideDom = mix(moduleFullPath)
+    console.log(html({ content: slideDom }))
 }
 
 // END

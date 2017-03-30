@@ -1,6 +1,6 @@
 {
   "name": "beatlab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Nerd/Noir modular workshop content.",
   "engines": {
     "node": ">=7.7.0"
@@ -10,9 +10,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/nerdnoir/beatlab.git"
+    "url": "http://github.com/nerdnoir/beatlab.git"
   },
   "scripts": {
+    "start" : "node server.js",
     "test": "./node_modules/.bin/mocha tests/specs/**/*.spec.js"
   },
   "author": "David Laribee <david@nerdnoir.com> (https://nerdnoir.com/)",
