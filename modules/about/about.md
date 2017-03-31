@@ -1,3 +1,6 @@
-An experiment in hyper-customizable instructional design and delivery.
+# Beatlab by Nerd/Noir
 
-Maximum curation.
+(https://beatlab.io)
+
+An experiment in hyper-customizable instructional design and delivery by [David Laribee](https://twitter.com/laribee).
+Composable stories. Maximum curation. Promotes interaction.

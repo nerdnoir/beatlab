@@ -43,7 +43,7 @@ describe("Module", () => {
   describe("Sections", () => {
     it ("pulls in sections from referenced modules", () => {
       const subject = new Module(path.join(loader.moduleRepo(), "example-module"))
-      expect(subject.sections.length).to.equal(11)
+      expect(subject.sections.length).to.equal(12)
     })
   })
 })

@@ -23,8 +23,6 @@
     "datauri": "^1.0.5",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.2",
-    "mkdirp": "^0.5.1",
-    "process": "latest",
     "ramda": "^0.23.0",
     "shelljs": "^0.7.7"
   },

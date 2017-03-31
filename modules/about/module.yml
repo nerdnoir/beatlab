@@ -1,9 +1,14 @@
-title: About Nerd/Noir Beatlab
-slug: about
+title: About Beatlab
+key: about
 author: laribee
-tags: [ 'beatlab' ]
-description: What is this thing?
-minutes: 1
+tags: [about]
+description: An experimental micro-talk content management system.
+minutes: 30
+outcomes:
+  - Learn about git best practices.
+  - Negotiate best practices within a team.
+  - Choose a few to try during the rest of the workshop.
 sections:
-  - slide: tr-808.png
   - slide: about.md
+  - slide: evel.html
+  - slide: tr-808.png

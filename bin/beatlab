@@ -24,7 +24,6 @@ function mix(command) {
 
     shelljs.mkdir('-p', command.destination)
     shelljs.cp('-r', "./vendor/reveal.js/.", command.destination)
-
     fs.writeFileSync(path.join(command.destination, 'index.html'), deck)
 }
 
@@ -36,7 +35,6 @@ program
 program
   .command('info')
   .description('Display default BEATLAB module path.')
-  .alias('i')
   .action(function() {
     const modulePath = process.env.BEATLAB_HOME || path.join(process.cwd(), "modules")
     console.log(modulePath)
