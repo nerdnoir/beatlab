@@ -16,6 +16,9 @@ sections:
   - slide: image1.gif
   - slide: image1.jpg
   - slide: image1.jpeg
+  - slide: vector.svg
+  - slide: versionone-ideas-gource-harman.webm
   - module: /example-module/sub/sub/
   - slide: feedback.md
+  - slide: P6yV9qY9g0I.youtube
   - module: /about/

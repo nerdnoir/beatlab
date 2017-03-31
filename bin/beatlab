@@ -7,6 +7,7 @@ const npmPackage = require('../package.json')
 const builders = require('../lib/builders')
 const fs = require('fs')
 const shelljs = require('shelljs')
+const chalk = require('chalk')
 
 // BEGIN: HACK
 
@@ -33,10 +34,21 @@ program
 
 program
   .command('info')
-  .description('Display default BEATLAB module path.')
-  .action(function() {
+  .option('--export [BEATLAB_HOME]', 'Prints environment variables for exporting only.')
+  .description('Display Beatlab configuration.')
+  .action(function(options) {
     const modulePath = process.env.BEATLAB_HOME || path.join(process.cwd(), "modules")
-    console.log(modulePath)
+
+    if (options.export) {
+      console.log(chalk.green(`export BEATLAB_HOME = '${modulePath}'`))
+    } else {
+      console.log(`Module path: ${chalk.green(modulePath)}`)
+      if (!process.env.BEATLAB_HOME) {
+        console.log(chalk.red('$BEATLAB_HOME: NOT FOUND'))
+      } else {
+        console.log(chalk.green(`$BEATLAB_HOME: ${process.env.BEATLAB_HOME}`))
+      }
+    }
   })
 
 program
@@ -44,11 +56,11 @@ program
   .description('Render a track from a module path (path) to output dir (out).')
   .option('-r, --repo <repo>', "Path to a module repository.")
   .action(function(source, destination, options) {
-    console.log(`Rendering module \"${source}\" to: \"${destination}\"`)
+    console.log(`Rendering module \"${chalk.green(source)}\" to: \"${chalk.blue(destination)}\"`)
 
     const loader = require('../lib/loader')
     const moduleRepo = loader.moduleRepo(options.repo)
-    console.log(`Resolving modules from: \"${moduleRepo}\"`)
+    console.log(`Resolving modules from: \"${chalk.yellow(moduleRepo)}\"`)
 
     mix({source: source, destination: destination, repo: options.repo})
   })
