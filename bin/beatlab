@@ -11,16 +11,15 @@ const shelljs = require('shelljs')
 // BEGIN: HACK
 
 function mix(command) {
-
     const loader = require('../lib/loader')
     const moduleRepo = loader.moduleRepo(command.repo)
     const moduleFullPath = path.join(moduleRepo, command.source)
 
     const mixer = require('../lib/mix')
-    const html = builders.HELPERS.createTemplate('presenter')
+    const presenterTemplate = builders.HELPERS.createTemplate('presenter')
     const slides = mixer(moduleFullPath)
 
-    const deck = html({ content: slides.join('\n') })
+    const deck = presenterTemplate({ content: slides.join('\n') })
 
     shelljs.mkdir('-p', command.destination)
     shelljs.cp('-r', "./vendor/reveal.js/.", command.destination)

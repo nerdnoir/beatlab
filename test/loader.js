@@ -6,13 +6,13 @@ const loader = require('../lib/loader')
 
 describe("Loader", () => {
 
-  it(`CWD returns the current working directory.
-      (That is, where the script was called from.)`, () => {
+  it(`#cwd() returns the current working directory.
+      (Where the script was called from.)`, () => {
     const actualCurrentWorkingDir = process.cwd()
     expect(loader.cwd()).to.equal(actualCurrentWorkingDir)
   })
 
-  describe("Locating the module repository:", () => {
+  describe("Locating the module repository.", () => {
 
     describe('When BEATLAB_HOME is set,', () => {
       it ('that is the module repo path.', () => {
@@ -28,7 +28,7 @@ describe("Loader", () => {
       })
     })
 
-    it('A custom path always wins', () => {
+    it('A custom path always wins.', () => {
       const actual = loader.moduleRepo('./custom/path')
       expect(actual).to.equal('./custom/path')
 
