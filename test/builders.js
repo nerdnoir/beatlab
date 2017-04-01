@@ -16,7 +16,7 @@ describe('Builder', () => {
 
     this.subject.register(markdownRule)
 
-    this.subject.build('slide.md')
+    this.subject.build({slidePath: 'slide.md'})
 
     expect(wasRead).to.be.true
   })
@@ -37,58 +37,10 @@ describe('Builder', () => {
     this.subject.register(markdown)
 
     // ACT
-    this.subject.build('slide.md')
+    this.subject.build({slidePath: 'slide.md'})
 
     // ASSERT
     expect(wasCalled).to.be.true
-  })
-
-  it('there is a default view data function.', () => {
-    // ARRANGE
-    let contentValue = null
-    const fakeReader = (path) => { return 'foo' }
-    const fakeTemplate = (data) => {
-      contentValue = data.content
-    }
-
-    const markdown = {
-      name: 'markdown',
-      match: R.test(/.*\.md$/),
-      read: fakeReader,
-      template: fakeTemplate
-    }
-
-    this.subject.register(markdown)
-
-    // ACT
-    this.subject.build('slide.md')
-
-    // ASSERT
-    expect(contentValue).to.equal('foo')
-  })
-
-  it('you can override the default view data function.', () => {
-    // ARRANGE
-    let contentValue = null
-    const fakeReader = (path) => { return 'bar' }
-    const fakeViewData = (fileContents) => { return { differentProp: fileContents } }
-    const fakeTemplate = (data) => { contentValue = data.differentProp }
-
-    const markdown = {
-      name: 'markdown',
-      match: R.test(/.*\.md$/),
-      read: fakeReader,
-      viewData: fakeViewData,
-      template: fakeTemplate
-    }
-
-    this.subject.register(markdown)
-
-    // ACT
-    this.subject.build('slide.md')
-
-    // ASSERT
-    expect(contentValue).to.equal('bar')
   })
 
   afterEach(() => {

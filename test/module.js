@@ -21,12 +21,12 @@ describe("Module", () => {
     })
 
     it("copies module data to the slide entry.", () => {
-      expect(this.subject.sections[0].data.title).to.equal('Git/GitHub Best Practices')
-      expect(this.subject.sections[10].data.title).to.equal('Test Sub Sub Module')
+      expect(this.subject.sections[0].module.title).to.equal('Git/GitHub Best Practices')
+      expect(this.subject.sections[10].module.title).to.equal('Test Sub Sub Module')
     })
 
-    it("copied module data DOES NOT contain slides", () => {
-      expect(this.subject.sections[0].data.slides).to.be.undefined;
+    it("copied module data DOES NOT contain sections", () => {
+      expect(this.subject.sections[0].module.sections).to.be.undefined;
     })
 
     describe("is done on the defense!", () => {
