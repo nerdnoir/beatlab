@@ -22,7 +22,7 @@ describe("Module", () => {
 
     it("copies module data to the slide entry.", () => {
       expect(this.subject.sections[0].data.title).to.equal('Git/GitHub Best Practices')
-      expect(this.subject.sections[7].data.title).to.equal('Test Sub Sub Module')
+      expect(this.subject.sections[10].data.title).to.equal('Test Sub Sub Module')
     })
 
     it("copied module data DOES NOT contain slides", () => {
@@ -43,7 +43,7 @@ describe("Module", () => {
   describe("Sections", () => {
     it ("pulls in sections from referenced modules", () => {
       const subject = new Module(path.join(loader.moduleRepo(), "example-module"))
-      expect(subject.sections.length).to.equal(12)
+      expect(subject.sections.length).to.equal(17)
     })
   })
 })
