@@ -80,7 +80,7 @@ BEATLAB_HOME=$HOME/my-modules beatlab mix my-talk ./talks/my-talk
 Contributing
 ------------
 
-Pull requests are welcome. Please read the ["How to Contribute"](./CONTRIBUTING.md) before submitting a pull request.
+Pull requests are welcome. Please read ["How to Contribute"](./CONTRIBUTING.md) before submitting a pull request.
 
 License
 -------
