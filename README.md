@@ -64,9 +64,10 @@ BEATLAB_HOME=$HOME/my-modules beatlab mix my-talk ./talks/my-talk
 Contributing
 ------------
 
-Please read the [contributing guide](./blob/master/CONTRIBUTING.md) before submitting a pull request.
+Please read the [contributing guide](./CONTRIBUTING.md) before submitting a pull request.
 
 License
 -------
 
-Beatlab is licensed under [the MIT license](./blob/master/LICENSE) and &copy; 2017 Nerd/Noir, LLC.
+Beatlab is licensed under [the MIT license](./LICENSE)
+&copy; 2017 Nerd/Noir, LLC.
