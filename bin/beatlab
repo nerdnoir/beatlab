@@ -16,7 +16,7 @@ function mix(command) {
     const moduleRepo = loader.moduleRepo(command.repo)
     const moduleFullPath = path.join(moduleRepo, command.source)
 
-    const mixer = require('../lib/mix')
+    const mixer = require('../lib/mixer')
     const presenterTemplate = builders.HELPERS.createTemplate('presenter')
     const slides = mixer(moduleFullPath)
 
