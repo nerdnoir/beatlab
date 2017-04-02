@@ -13,9 +13,9 @@ npm install -g @nerdnoir/beatlab
 Usage
 -----
 
-Define a module in the module path (see below).
+First you can define a module in the module path (see below).
 
-Here's an example to get you started:
+Here's an example module manifest to get you started:
 
 ```yaml
 title: My Workshop
@@ -41,17 +41,31 @@ From there, follow the help: `beatlab --help`
 
 The main command, `beatlab mix <module> <buildDir>`, will read the
 named module and stitch together a slideshow from slides and referenced modules
-defined in the module.yml manifest.
+defined in the module.yml manifest. In `<buildDir>` you will find a complete 
+[reveal.js](https://github.com/hakimel/reveal.js/) slide deck. The `index.html` 
+file was rendered by Beatlab and contains your show. 
 
-Configure the Module Path
+
+If you have cloned this repo, this command will build an 
+example module we use to test Beatlab:
+
+```bash
+$ rm -rf build && beatlab mix example-module ./build && open ./build/index.html
+```
+
+Configure Your Module Path
 -------------------------
 
 Modules contain sections which are slides or references to
-other modules. Beatlab will attempt to resolves modules based
-on `$PWD/modules/`.
+other modules. This allows you to keep your library of slides and 
+modules private, if that's your thing.
+
+Beatlab will automatically attempt to resolves modules based
+on `$PWD/modules/`. 
 
 Optionally, you can set a global module path using an
-enviroment variable `$BEATLAB_HOME`.
+enviroment variable `$BEATLAB_HOME`. Use this to point to 
+another git repo containing reusable slides and modules.
 
 ```bash
 # Put this in your .bashrc or .zshrc
@@ -64,7 +78,7 @@ BEATLAB_HOME=$HOME/my-modules beatlab mix my-talk ./talks/my-talk
 Contributing
 ------------
 
-Please read the [contributing guide](./CONTRIBUTING.md) before submitting a pull request.
+Pull requests are welcome. Please read the ["How to Contribute"](./CONTRIBUTING.md) before submitting a pull request.
 
 License
 -------
