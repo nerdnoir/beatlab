@@ -23,7 +23,7 @@ function mix(command) {
     const deck = presenterTemplate({ content: slides.join('\n') })
 
     shelljs.mkdir('-p', command.destination)
-    shelljs.cp('-r', "./vendor/reveal.js/.", command.destination)
+    shelljs.cp('-r', "./vendor/reveal/.", command.destination)
     fs.writeFileSync(path.join(command.destination, 'index.html'), deck)
 }
 
