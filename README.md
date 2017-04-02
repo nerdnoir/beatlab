@@ -1,17 +1,21 @@
-# Beatlab
+Beatlab
+=======
 
-A simple content manager built on top of reveal.js.
+Beatlab is a simple content manager built on top of [reveal.js](https://github.com/hakimel/reveal.js/). It is useful for speakers who have a lot of content that they'd like to reuse and mix into new or customized talks or workshops.
 
-## Install
+Install
+-------
 
 ```bash
 npm install -g @nerdnoir/beatlab
 ```
 
-## Usage
+Usage
+-----
 
-Define a module in the module path (see below). Here's an example
-module:
+Define a module in the module path (see below). 
+
+Here's an example to get you started:
 
 ```yaml
 title: My Workshop
@@ -39,19 +43,30 @@ The main command, `beatlab mix <module> <buildDir>`, will read the
 named module and stitch together a slideshow from slides and referenced modules
 defined in the module.yml manifest.
 
-## Configure the Module Path
+Configure the Module Path
+-------------------------
 
 Modules contain sections which are slides or references to
 other modules. Beatlab will attempt to resolves modules based
 on `$PWD/modules/`.
 
 Optionally, you can set a global module path using an
-enviroment variable `$BEATLAB_HOME'.
+enviroment variable `$BEATLAB_HOME`.
 
 ```bash
+# Put this in your .bashrc or .zshrc
 export BEATLAB_HOME=/absoute/path/to/my/modules
+
+# Or set the variable when running beatlab
+BEATLAB_HOME=$HOME/my-modules beatlab mix my-talk ./talks/my-talk
 ```
 
-## License
+Contributing
+------------
 
-[MIT](../blob/master/LICENSE)
+Please read the [contributing guide](./blob/master/CONTRIBUTING.md) before submitting a pull request.
+
+License
+-------
+
+Beatlab is licensed under the [MIT](./blob/master/LICENSE). &copy; Nerd/Noir LLC
