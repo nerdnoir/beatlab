@@ -1,4 +1,4 @@
-# Contributing
+# How to Contribute
 
 1.  Fork the project and clone your fork.
 
