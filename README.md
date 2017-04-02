@@ -69,4 +69,4 @@ Please read the [contributing guide](./blob/master/CONTRIBUTING.md) before submi
 License
 -------
 
-Beatlab is licensed under the [MIT](./blob/master/LICENSE). &copy; Nerd/Noir LLC
+Beatlab is licensed under [the MIT license](./blob/master/LICENSE) and &copy; 2017 Nerd/Noir, LLC.
