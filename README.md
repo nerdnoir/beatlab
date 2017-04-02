@@ -1,12 +1,12 @@
 A simple content manager built on top of reveal.js.
 
-# Install
+## Install
 
 ```bash
 npm install -g @nerdnoir/beatlab
 ```
 
-#Usage
+## Usage
 
 Define a module in the module path (see below). Here's an example
 module:
@@ -31,16 +31,20 @@ sections:
 
 ```
 
-From there follow the help: `beatlab --help`
+From there, follow the help: `beatlab --help`
 
-# Configure the Module Path
+The main command, `beatlab mix <module> <buildDir>`, will read the
+named module and stitch together a slideshow from slides and referenced modules
+defined in the module.yml manifest.
+
+## Configure the Module Path
 
 Modules contain sections which are slides or references to
 other modules. Beatlab will attempt to resolves modules based
-on `$PWD/modules/` (based on where it is called).
+on `$PWD/modules/`.
 
 Optionally, you can set a global module path using an
-enviroment variable.
+enviroment variable `$BEATLAB_HOME'.
 
 ```bash
 export BEATLAB_HOME=/absoute/path/to/my/modules
