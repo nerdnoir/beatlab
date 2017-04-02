@@ -69,5 +69,5 @@ Please read the [contributing guide](./CONTRIBUTING.md) before submitting a pull
 License
 -------
 
-Beatlab is licensed under [the MIT license](./LICENSE)
+Beatlab is licensed under [the MIT license](./LICENSE.md)
 &copy; 2017 Nerd/Noir, LLC.
