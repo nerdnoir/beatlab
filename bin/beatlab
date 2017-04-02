@@ -65,7 +65,4 @@ program
     mix({source: source, destination: destination, repo: options.repo})
   })
 
-program
-  .command('drop <domain>', "Publish the show!")
-
 program.parse(process.argv)
