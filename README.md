@@ -13,7 +13,7 @@ npm install -g @nerdnoir/beatlab
 Usage
 -----
 
-Define a module in the module path (see below). 
+Define a module in the module path (see below).
 
 Here's an example to get you started:
 
