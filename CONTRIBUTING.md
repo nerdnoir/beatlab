@@ -13,7 +13,7 @@
 1.  Make one or more atomic commits. Each commit should have a descriptive
     commit message, wrapped at 72 characters. 
 
-5.  Run `npm test` (or `make test lint`) and address any errors. It will install
+5.  Run `npm test` and address any errors. It will install
     needed dependencies locally.  Preferably, fix commits in place using `git
     rebase` or `git commit --amend` to make the changes easier to review and to
     keep the history tidy.
