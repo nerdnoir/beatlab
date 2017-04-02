@@ -16,11 +16,10 @@ sections:
   - slide: image1.gif
   - slide: image1.jpg
   - slide: image1.jpeg
+  - slide: P6yV9qY9g0I.youtube
   - slide: lecorbusier.html
   - slide: vector.svg
   - slide: versionone-ideas-gource-harman.webm
-  - slide: storymap.html
   - module: /example-module/sub/sub/
   - slide: feedback.md
-  - slide: P6yV9qY9g0I.youtube
   - module: /about/
