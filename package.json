@@ -1,5 +1,5 @@
 {
-  "name": "beatlab",
+  "name": "@nerdnoir/beatlab",
   "version": "1.0.0",
   "description": "Nerd/Noir modular workshop content.",
   "engines": {
