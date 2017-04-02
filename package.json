@@ -7,7 +7,6 @@
   },
   "main": "./lib/exports.js",
   "bin": "./bin/beatlab",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "http://github.com/nerdnoir/beatlab.git"
