@@ -1,3 +1,5 @@
+# Beatlab
+
 A simple content manager built on top of reveal.js.
 
 ## Install
@@ -49,3 +51,7 @@ enviroment variable `$BEATLAB_HOME'.
 ```bash
 export BEATLAB_HOME=/absoute/path/to/my/modules
 ```
+
+## License
+
+[MIT](../blob/master/LICENSE)
