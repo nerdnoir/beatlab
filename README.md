@@ -2,6 +2,7 @@
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Code Climate - Health](https://codeclimate.com/github/nerdnoir/beatlab.png)](https://codeclimate.com/github/nerdnoir/beatlab)
 [![Code Climate - Health](https://codeclimate.com/github/nerdnoir/beatlab/coverage.png)](https://codeclimate.com/github/nerdnoir/beatlab)
+
 Beatlab
 =======
 
