@@ -1,7 +1,7 @@
 {
   "name": "beatlab",
-  "version": "1.0.2",
-  "description": "Nerd/Noir modular workshop content.",
+  "version": "1.0.3",
+  "description": "Curated presentations on top of reveal.js.",
   "engines": {
     "node": ">=7.7.0"
   },
