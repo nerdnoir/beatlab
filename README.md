@@ -9,7 +9,7 @@ Install
 -------
 
 ```bash
-npm install -g @nerdnoir/beatlab
+npm install -g beatlab
 ```
 
 Usage
