@@ -9,8 +9,6 @@ const fs = require('fs')
 const shelljs = require('shelljs')
 const chalk = require('chalk')
 
-// BEGIN: HACK
-
 function mix(command) {
     const loader = require('../lib/loader')
     const moduleRepo = loader.moduleRepo(command.repo)
@@ -29,8 +27,6 @@ function mix(command) {
     shelljs.cp('-R', revealPath, destinationPath)
     fs.writeFileSync(path.join(destinationPath, 'index.html'), deck)
 }
-
-// END
 
 program
   .version(npmPackage.version)
