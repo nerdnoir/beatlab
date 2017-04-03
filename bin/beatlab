@@ -23,8 +23,11 @@ function mix(command) {
     const deck = presenterTemplate({ content: slides.join('\n') })
 
     shelljs.mkdir('-p', command.destination)
-    shelljs.cp('-r', "./reveal/.", command.destination)
-    fs.writeFileSync(path.join(command.destination, 'index.html'), deck)
+    const revealPath = path.join(__dirname, '..', 'reveal') + '/*'
+    const destinationPath = path.join(command.destination, '/')
+    console.log(`Copying reveal.js @ ${chalk.blue(revealPath)} to ${chalk.blue(destinationPath)}`)
+    shelljs.cp('-R', revealPath, destinationPath)
+    fs.writeFileSync(path.join(destinationPath, 'index.html'), deck)
 }
 
 // END
