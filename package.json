@@ -1,6 +1,6 @@
 {
   "name": "beatlab",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Compose talks and workshops from an inventory of slides and modules.",
   "engines": {
     "node": ">=7.7.0"
