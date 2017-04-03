@@ -4,6 +4,10 @@ node_js:
 addons:
   code_climate:
     repo_token: 34d7a7423409180c47b106b12a4db36271a9dbb743913aa2f4b2894d4c0bf967
+after_success:
+  - npm run cover
+  - npm install -g codeclimate-test-reporter
+  - codeclimate-test-reporter < ./coverage/lcov.info
 notifications:
   slack:
     secure: F5Y/ztWuMrY1hZcou2W5Cy+Q+dB69efe9AZqVhrsAaKMY/oN7Uc4tBbKZY2dVyGdxrvYVvQ7NAqmh9CqvmQAapRRA7Li2L7seD/MV0STCITGhsF8rI20WxZ9AQyxnMMTSAtDBA+XufAf5IjQ14ldSVdbcmbXRfDraupKzbRIxjXAh9+fLy5LvzEBk3hS3FGf6rfLea/Z9C4DCtZALY22MS5mTeDwRWn/rBY0MDlUb7HZRvwE4gjWFQCpzuvrRokwFODvN7z93dSnFJqtXrCDSxNVGDV9ioRFM/aPqp68Oxy+e8E7rz9tKZ6j6eh+I0shAKECTgoGhnj/BYF6OLLJCha2OrQIdtQMwZWcDbnqIu4CrbysqAT7gA5vZ08CvNBHJ7biO2uZOQHmRANAaWhmW0Ut9NBCurXx8yKjlwLM+viZx3OMq8vH57iy5cnbJIFDWrCUjPG0sxHQijsxnOZtQICs5E3LZOmjiGBi6I7HJsBf7FuHIGqhN4T2VURbY4VxNaQwQ1Qg/jU5SbsybU+4ae6G1y363g8q41fq6lq9VFesRFipEyD/aGRFKWK1QG8wsmZ6b9FSI7MhdVIuq+hYxkNsYG2j8ZA4Ah3Bo3djah3jMQYlsMyuu62WNchkxfHhUYBTL8T6JPJXT0BtNm8NxDOY+EImCxIi49Y2fgGUlIM=
