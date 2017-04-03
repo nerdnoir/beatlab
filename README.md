@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nerdnoir/beatlab.svg?branch=master)](https://travis-ci.org/nerdnoir/beatlab)
+[![Build Status](https://travis-ci.org/nerdnoir/beatlab.svg?branch=master)](https://travis-ci.org/nerdnoir/beatlab) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Beatlab
 =======
@@ -43,12 +43,12 @@ From there, follow the help: `beatlab --help`
 
 The main command, `beatlab mix <module> <buildDir>`, will read the
 named module and stitch together a slideshow from slides and referenced modules
-defined in the module.yml manifest. In `<buildDir>` you will find a complete 
-[reveal.js](https://github.com/hakimel/reveal.js/) slide deck. The `index.html` 
-file was rendered by Beatlab and contains your show. 
+defined in the module.yml manifest. In `<buildDir>` you will find a complete
+[reveal.js](https://github.com/hakimel/reveal.js/) slide deck. The `index.html`
+file was rendered by Beatlab and contains your show.
 
 
-If you have cloned this repo, this command will build an 
+If you have cloned this repo, this command will build an
 example module we use to test Beatlab:
 
 ```bash
@@ -59,14 +59,14 @@ Configure Your Module Path
 -------------------------
 
 Modules contain sections which are slides or references to
-other modules. This allows you to keep your library of slides and 
+other modules. This allows you to keep your library of slides and
 modules private, if that's your thing.
 
 Beatlab will automatically attempt to resolves modules based
-on `$PWD/modules/`. 
+on `$PWD/modules/`.
 
 Optionally, you can set a global module path using an
-enviroment variable `$BEATLAB_HOME`. Use this to point to 
+enviroment variable `$BEATLAB_HOME`. Use this to point to
 another git repo containing reusable slides and modules.
 
 ```bash
