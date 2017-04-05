@@ -3,7 +3,7 @@
   "version": "0.1.0-alpha",
   "description": "Compose talks and workshops from an inventory of slides and modules.",
   "engines": {
-    "node": ">=7.7.0"
+    "node": ">=7.8.0"
   },
   "main": "./lib/exports.js",
   "bin": "./bin/beatlab",
