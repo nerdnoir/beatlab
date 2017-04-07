@@ -2,38 +2,45 @@ const chai = require('chai')
 const expect = chai.expect
 chai.use(require('chai-string'))
 const path = require('path')
-const loader = require('../lib/loader')
+const Loader = require('../lib/loader')
+const Module = require('../lib/module')
 
 describe('Loader', () => {
-  it(`#cwd() returns the current working directory.
-      (Where the script was called from.)`, () => {
-    const actualCurrentWorkingDir = process.cwd()
-    expect(loader.cwd()).to.equal(actualCurrentWorkingDir)
-  })
-
-  describe('Locating the module repository.', () => {
+  
+  describe('Locates the module repository.', () => {
     describe('When BEATLAB_HOME is set,', () => {
       it('that is the module repo path.', () => {
         process.env.BEATLAB_HOME = '/var/beatlab-modules'
-        expect(loader.moduleRepo()).to.equal('/var/beatlab-modules')
+        expect(new Loader().moduleRepo()).to.equal('/var/beatlab-modules')
         delete process.env.BEATLAB_HOME
       })
     })
 
     describe('When BEATLAB_HOME is not set,', () => {
       it('assume module repo is in a "modules" sub-directory.', () => {
-        expect(loader.moduleRepo()).to.equal(path.join(process.cwd(), 'modules'))
+        expect(new Loader().moduleRepo()).to.equal(path.join(process.cwd(), 'modules'))
       })
     })
 
-    it('A custom path always wins.', () => {
-      const actual = loader.moduleRepo('./custom/path')
+    it('the module path can be overridden.', () => {
+      const actual = new Loader('./custom/path').moduleRepo()
       expect(actual).to.equal('./custom/path')
 
       process.env.BEATLAB_HOME = '/var/beatlab-modules'
-      const actualWithEnvVar = loader.moduleRepo('./custom/path')
+      const actualWithEnvVar = new Loader('./custom/path').moduleRepo()
       expect(actualWithEnvVar).to.equal('./custom/path')
       delete process.env.BEATLAB_HOME
+    })
+  })
+  
+  describe("Loads module manifests.", () => {
+    it("Manifests are used to re-hydrate Module objects.", () => {
+      const manifest = new Loader().loadModuleManifest("main")
+      expect(manifest).to.have.property('sections')
+    })
+    
+    it("Will throw an error if the module cannot be found.", () => {
+      expect(() => new Loader().loadModuleManifest("no-such-module")).to.throw("Module not found")
     })
   })
 })

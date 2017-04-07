@@ -1,39 +1,23 @@
 #!/usr/local/bin/node
 
 const program = require('commander')
+const npmPackage = require('../package.json')
+const chalk = require('chalk')
 const process = require('process')
 const path = require('path')
-const npmPackage = require('../package.json')
 const builders = require('../lib/builders')
+const Module = require('../lib/module')
 const fs = require('fs')
 const shelljs = require('shelljs')
-const chalk = require('chalk')
-
-function mix(command) {
-    const loader = require('../lib/loader')
-    const moduleRepo = loader.moduleRepo(command.repo)
-    const moduleFullPath = path.join(moduleRepo, command.source)
-
-    const mixer = require('../lib/mixer')
-    const presenterTemplate = builders.HELPERS.createTemplate('presenter')
-    const slides = mixer(moduleFullPath)
-
-    const deck = presenterTemplate({ content: slides.join('\n') })
-
-    shelljs.mkdir('-p', command.destination)
-    const revealPath = path.join(__dirname, '..', 'reveal') + '/*'
-    const destinationPath = path.join(command.destination, '/')
-    console.log(`Copying reveal.js @ ${chalk.blue(revealPath)} to ${chalk.blue(destinationPath)}`)
-    shelljs.cp('-R', revealPath, destinationPath)
-    fs.writeFileSync(path.join(destinationPath, 'index.html'), deck)
-}
+const Loader = require('../lib/loader')
+const R = require('ramda')
 
 program
   .version(npmPackage.version)
 
 program
   .command('info')
-  .option('--export [BEATLAB_HOME]', 'Prints environment variables for exporting only.')
+  .option('--export [BEATLAB_HOME]', 'Prints environment variables for export.')
   .description('Display Beatlab configuration.')
   .action(function(options) {
     const modulePath = process.env.BEATLAB_HOME || path.join(process.cwd(), "modules")
@@ -50,18 +34,36 @@ program
     }
   })
 
+function copyReveal (destination) {
+    const revealPath = path.join(__dirname, '..', 'reveal') + '/*'
+    const destinationPath = path.join(destination, '/')
+    console.log(`Copying reveal.js @ ${chalk.blue(revealPath)} to ${chalk.blue(destinationPath)}`)
+    shelljs.cp('-R', revealPath, destinationPath)
+}
+
+const mixCommand = (source = 'main', destination = 'out', options) => {
+    console.log(source)
+
+    const loader = new Loader()
+    const manifest = loader.loadModuleManifest(source)
+    const module = new Module(manifest)
+
+    const mixer = require('../lib/mixer')
+    const slides = mixer(module)
+    const presenterTemplate = builders.HELPERS.createTemplate('presenter')
+    const deck = presenterTemplate({ content: slides.join('\n') })
+
+    shelljs.mkdir('-p', destination)
+
+    copyReveal(destination)
+
+    fs.writeFileSync(path.join(destination, 'index.html'), deck)
+}
+
 program
-  .command('mix <source> <destination>')
-  .description('Render a track from a module path (path) to output dir (out).')
-  .option('-r, --repo <repo>', "Path to a module repository.")
-  .action(function(source, destination, options) {
-    console.log(`Rendering module \"${chalk.green(source)}\" to: \"${chalk.blue(destination)}\"`)
-
-    const loader = require('../lib/loader')
-    const moduleRepo = loader.moduleRepo(options.repo)
-    console.log(`Resolving modules from: \"${chalk.yellow(moduleRepo)}\"`)
-
-    mix({source: source, destination: destination, repo: options.repo})
-  })
+  .command('mix [source] [destination]')
+  .description('Render a module into a slide show.')
+  .action(mixCommand)
+  .parse(process.argv)
 
 program.parse(process.argv)

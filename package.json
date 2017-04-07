@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "./node_modules/.bin/mocha --reporter landing --ui bdd --require ./test/helper.js ./test/**/*.tests.js",
-    "spec": "./node_modules/.bin/mocha --reporter spec --ui bdd --require ./test/helper.js ./test/**/*.tests.js",
+    "test": "./node_modules/.bin/mocha --ui bdd --require ./test/helper.js ./test/**/*.tests.js",
     "cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --require ./test/helper.js ./test/**/*.tests.js",
     "deploy-manual": "cd ./docs/manual/ && now && now alias"
   },
